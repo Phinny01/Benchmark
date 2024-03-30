@@ -23,5 +23,14 @@ auto memoryBenchmark() {
         sink = array[i];
     }
 
+  auto end = high_resolution_clock::now();
+    auto duration = duration_cast<seconds>(end - start);
+    return duration;
+}
+
+int main() {
+        auto duration = memoryBenchmark();
+        std::cout << "Total execution time of the memory benchmark: " << duration.count() << " seconds" << std::endl;
+
 }
  
