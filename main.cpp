@@ -35,16 +35,27 @@ auto float_benchmark() {
     auto start = high_resolution_clock::now();
 
     // 10^10 additions
-    volatile double sum = 0.0;
+    double sum = 0.0;
     for(long long i = 0; i < 10000000000LL; ++i) {
         sum += 1.0; // Simple addition
     }
 
     // 5 x 10^9 multiplications
-    volatile double mul = 1.0;
+    double mul = 1.0;
     for(long long i = 0; i < 5000000000LL; ++i) {
         mul *= 2.0; // Simplified operation for benchmarking
     }
+
+// 2 x 10^9 divisions
+    double div = 1000; 
+    for(long long i = 0; i < 2000000000LL; ++i) {
+        div /= 2.0; // Simplified operation for benchmarking 
+    }
+
+    auto end = high_resolution_clock::now();
+    
+  auto duration = duration_cast<seconds>(end - start);
+    return duration;
 }
 
 int main() {
