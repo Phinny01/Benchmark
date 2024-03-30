@@ -60,6 +60,8 @@ auto float_benchmark() {
 
 int main() {
     auto duration = int_benchmark();
-    std::cout << "Total execution time of the benchmark: " << duration.count() << " seconds" << std::endl;
+    std::cout << "Total execution time of the 32 bit integer operation benchmark: " << duration.count() << " seconds" << std::endl;
+    auto duration_2 = float_benchmark();
+    std::cout << "Total execution time of the 64 bit floating point operation benchmark: " << duration_2.count() << " seconds" << std::endl;
 }
 
