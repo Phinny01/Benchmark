@@ -13,9 +13,10 @@ int main() {
       mul *= 2; // Simplified operation for benchmarking
   }
   // 2 x 10^9 divisions
-  double div = 1.0;
+  int div = 1.0;
   for(long long i = 0; i < 2000000000LL; ++i) {
       div /= 2.0; // Simplified operation for benchmarking
   }
-
+  auto end = high_resolution_clock::now();
+  auto duration = duration_cast<seconds>(end - start);
 }
