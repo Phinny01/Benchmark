@@ -1,7 +1,8 @@
 #include <iostream>
 #include <chrono>
-#include <climits>
 
+
+//32-bit int benchmark
 auto int_benchmark() {
     using namespace std::chrono;
     auto start = high_resolution_clock::now();
@@ -27,6 +28,23 @@ auto int_benchmark() {
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<seconds>(end - start);
     return duration;
+}
+//64-bit Float benchmark
+auto float_benchmark() {
+    using namespace std::chrono;
+    auto start = high_resolution_clock::now();
+
+    // 10^10 additions
+    volatile double sum = 0.0;
+    for(long long i = 0; i < 10000000000LL; ++i) {
+        sum += 1.0; // Simple addition
+    }
+
+    // 5 x 10^9 multiplications
+    volatile double mul = 1.0;
+    for(long long i = 0; i < 5000000000LL; ++i) {
+        mul *= 2.0; // Simplified operation for benchmarking
+    }
 }
 
 int main() {
