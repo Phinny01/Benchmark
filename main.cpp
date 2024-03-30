@@ -12,4 +12,10 @@ int main() {
   for(long long i = 0; i < 5000000000LL; ++i) {
       mul *= 2; // Simplified operation for benchmarking
   }
+  // 2 x 10^9 divisions
+  double div = 1.0;
+  for(long long i = 0; i < 2000000000LL; ++i) {
+      div /= 2.0; // Simplified operation for benchmarking
+  }
+
 }
