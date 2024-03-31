@@ -54,11 +54,27 @@ std::chrono::duration<double> benchmarkHardDriveOperations_2() {
             file.write(buffer.data(), buffer.size());
         }
     }
+ // Read the file in chunks
+    {
+        std::ifstream file(filename, std::ios::binary);
+        std::vector<char> readBuffer(chunkSize);
+        while (file.read(readBuffer.data(), readBuffer.size())) {
+            // Optionally process data
+        }
+    }
 
+    auto end = high_resolution_clock::now();
+    // Removing the temporary file
+    std::remove(filename.c_str());
+
+    // Return the duration in seconds as a double
+    return duration_cast<duration<double>>(end - start);
    
 }
 
 int main() {
     auto duration = benchmarkHardDriveOperations();
     std::cout << "Execution time for Hard drive operation one is " << duration.count() << " seconds" << std::endl;
+    auto duration_2 = benchmarkHardDriveOperations();
+    std::cout << "Execution time for Hard drive operation one is " << duration_2.count() << " seconds" << std::endl;
 }
