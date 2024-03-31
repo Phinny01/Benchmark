@@ -3,7 +3,7 @@
 #include <vector>
 
 // Memory Benchmark Function
-auto memoryBenchmark() {
+std::chrono::duration<double> memoryBenchmark() {
     using namespace std::chrono;
     const long long numElements = 5000000000LL; // 5 x 10^9 elements
 
@@ -18,7 +18,7 @@ auto memoryBenchmark() {
     for(long long i = 0; i < numElements; ++i) {
         sink = array[i];
     }
-    
+
     // Write to each array element
     for(long long i = 0; i < numElements; ++i) {
         array[i] = i % 100; // Example write operation
@@ -27,8 +27,8 @@ auto memoryBenchmark() {
     
 
   auto end = high_resolution_clock::now();
-    auto duration = duration_cast<seconds>(end - start);
-    return duration;
+    return duration_cast<duration<double>>(end - start);
+    
 }
 
 int main() {
