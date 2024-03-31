@@ -12,16 +12,19 @@ auto memoryBenchmark() {
 
  auto start = high_resolution_clock::now();
 
+
+// Read from each array element
+    int sink; 
+    for(long long i = 0; i < numElements; ++i) {
+        sink = array[i];
+    }
+    
     // Write to each array element
     for(long long i = 0; i < numElements; ++i) {
         array[i] = i % 100; // Example write operation
     }
 
-    // Read from each array element
-    int sink; 
-    for(long long i = 0; i < numElements; ++i) {
-        sink = array[i];
-    }
+    
 
   auto end = high_resolution_clock::now();
     auto duration = duration_cast<seconds>(end - start);
