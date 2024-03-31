@@ -76,5 +76,5 @@ int main() {
     auto duration = benchmarkHardDriveOperations();
     std::cout << "Execution time for Hard drive operation one is " << duration.count() << " seconds" << std::endl;
     auto duration_2 = benchmarkHardDriveOperations();
-    std::cout << "Execution time for Hard drive operation one is " << duration_2.count() << " seconds" << std::endl;
+    std::cout << "Execution time for Hard drive operation two is " << duration_2.count() << " seconds" << std::endl;
 }
